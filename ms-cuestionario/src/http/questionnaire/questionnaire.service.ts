@@ -17,18 +17,18 @@ export class QuestionnaireService {
   }
 
   async findAll() {
-    return this.questionnaireModel.find().exec();
+    return await this.questionnaireModel.find().exec();
   }
 
   async findOne(id: string) {
-    return this.questionnaireModel.findById(id).exec();
+    return await this.questionnaireModel.findById(id).exec();
   }
 
   async update(id: string, updateQuestionnaireDto: UpdateQuestionnaireDto) {
-    return this.questionnaireModel.findByIdAndUpdate(id, updateQuestionnaireDto, { new: true }).exec();
+    return await this.questionnaireModel.findByIdAndUpdate(id, updateQuestionnaireDto, { new: true }).exec();
   }
 
   async remove(id: string) {
-    return this.questionnaireModel.findByIdAndDelete(id).exec();
+    return await this.questionnaireModel.findByIdAndDelete(id).exec();
   }
 }

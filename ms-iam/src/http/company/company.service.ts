@@ -11,22 +11,22 @@ export class CompanyService {
 
   async create(createCompanyDto: CreateCompanyDto) {
     const createdCompany = new this.companyModel(createCompanyDto);
-    return createdCompany.save();
+    return await createdCompany.save();
   }
 
   async findAll() {
-    return this.companyModel.find().exec();
+    return await this.companyModel.find().exec();
   }
 
   async findOne(id: string) {
-    return this.companyModel.findById(id).exec();
+    return await this.companyModel.findById(id).exec();
   }
 
   async update(id: string, updateCompanyDto: UpdateCompanyDto) {
-    return this.companyModel.findByIdAndUpdate(id, updateCompanyDto, { new: true }).exec();
+    return await this.companyModel.findByIdAndUpdate(id, updateCompanyDto, { new: true }).exec();
   }
 
   async remove(id: string) {
-    return this.companyModel.findByIdAndDelete(id).exec();
+    return await this.companyModel.findByIdAndDelete(id).exec();
   }
 }

@@ -11,22 +11,22 @@ export class MachineService {
 
   async create(createMachineDto: CreateMachineDto) {
     const createdMachine = new this.machineModel(createMachineDto);
-    return createdMachine.save();
+    return await createdMachine.save();
   }
 
   async findAll() {
-    return this.machineModel.find().exec();
+    return await this.machineModel.find().exec();
   }
 
   async findOne(id: string) {
-    return this.machineModel.findById(id).exec();
+    return await this.machineModel.findById(id).exec();
   }
 
   async update(id: string, updateMachineDto: UpdateMachineDto) {
-    return this.machineModel.findByIdAndUpdate(id, updateMachineDto, { new: true }).exec();
+    return await this.machineModel.findByIdAndUpdate(id, updateMachineDto, { new: true }).exec();
   }
 
   async remove(id: string) {
-    return this.machineModel.findByIdAndDelete(id).exec();
+    return await this.machineModel.findByIdAndDelete(id).exec();
   }
 }

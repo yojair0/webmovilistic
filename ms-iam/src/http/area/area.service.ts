@@ -11,22 +11,22 @@ export class AreaService {
 
   async create(createAreaDto: CreateAreaDto) {
     const createdArea = new this.areaModel(createAreaDto);
-    return createdArea.save();
+    return await createdArea.save();
   }
 
   async findAll() {
-    return this.areaModel.find().exec();
+    return await this.areaModel.find().exec();
   }
 
   async findOne(id: string) {
-    return this.areaModel.findById(id).exec();
+    return await this.areaModel.findById(id).exec();
   }
 
   async update(id: string, updateAreaDto: UpdateAreaDto) {
-    return this.areaModel.findByIdAndUpdate(id, updateAreaDto, { new: true }).exec();
+    return await this.areaModel.findByIdAndUpdate(id, updateAreaDto, { new: true }).exec();
   }
 
   async remove(id: string) {
-    return this.areaModel.findByIdAndDelete(id).exec();
+    return await this.areaModel.findByIdAndDelete(id).exec();
   }
 }
